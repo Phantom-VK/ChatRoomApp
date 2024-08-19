@@ -20,11 +20,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.test.chatroomapp.viewmodel.AuthViewModel
 
 @Composable
 fun SignUpScreen(
     authViewModel: AuthViewModel,
+    navController: NavController,
     onNavigateToLogin:() -> Unit
 
 ) {
@@ -78,6 +80,7 @@ fun SignUpScreen(
             onClick = {
                 //add the signup function
                 authViewModel.signUp(email, password, firstName, lastName)
+                onNavigateToLogin()
                 email = ""
                 password = ""
                 firstName = ""
